@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{AC5E1E49-98F3-43AF-9307-F92CF05B8030}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Лаб1_МОРОЗ.cbproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="C:\Users\artem\Documents\Embarcadero\Studio\Projects\Code1\Lab0.cbproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Лаб1_МОРОЗ">
+        <MSBuild Projects="Лаб1_МОРОЗ.cbproj"/>
+    </Target>
+    <Target Name="Лаб1_МОРОЗ:Clean">
+        <MSBuild Projects="Лаб1_МОРОЗ.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Лаб1_МОРОЗ:Make">
+        <MSBuild Projects="Лаб1_МОРОЗ.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Lab0">
+        <MSBuild Projects="C:\Users\artem\Documents\Embarcadero\Studio\Projects\Code1\Lab0.cbproj"/>
+    </Target>
+    <Target Name="Lab0:Clean">
+        <MSBuild Projects="C:\Users\artem\Documents\Embarcadero\Studio\Projects\Code1\Lab0.cbproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Lab0:Make">
+        <MSBuild Projects="C:\Users\artem\Documents\Embarcadero\Studio\Projects\Code1\Lab0.cbproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Лаб1_МОРОЗ;Lab0"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Лаб1_МОРОЗ:Clean;Lab0:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Лаб1_МОРОЗ:Make;Lab0:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
